@@ -3,360 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacy Meats Hub | Premium Meat & Dairy Delivery Kasarani</title>
-    <meta name="description" content="Legacy Meats Hub offers fresh beef, goat, kienyeji chicken, and dairy delivery in Kasarani and Thika Road. High-quality cuts for homes, hotels, and events.">
+    <title>Legacy Meats Hub | Quality Meat & Dairy Delivery Nairobi</title>
+    <meta name="description" content="Legacy Meats Hub offers quality beef, goat, kienyeji chicken, and wholesale supply in Nairobi. High-quality cuts delivery at your doorstep.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS for Layout -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- JSON-LD for Local SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ButcherShop",
-      "name": "Legacy Meats Hub",
-      "image": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=800",
-      "@id": "",
-      "url": "https://legacymeatshub.co.ke",
-      "telephone": "+254729466466",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Kahura Kanua Road Kasarani -off Mwiki Road",
-        "addressLocality": "Nairobi",
-        "addressRegion": "Nairobi",
-        "addressCountry": "KE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -1.2215,
-        "longitude": 36.8973
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "09:00",
-        "closes": "22:00"
-      }
-    }
-    </script>
-
     <style>
-        :root {
-            --primary: #9b1c1c; /* Deep Meat Red */
-            --accent: #f9fafb;
-            --dark: #111827;
-        }
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        :root { --primary: #7f1d1d; --dark: #0a0a0a; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
         h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
-        .hero-animate {
-            animation: fadeInOut 8s infinite;
-        }
-        
-        @keyframes fadeInOut {
-            0%, 20% { opacity: 0; transform: translateY(10px); }
-            25%, 45% { opacity: 1; transform: translateY(0); }
-            50%, 70% { opacity: 0; transform: translateY(-10px); }
-            100% { opacity: 0; }
-        }
+        /* Compact UI Adjustments */
+        .section-padding { padding: 2rem 1rem; }
+        @media (max-width: 768px) { .section-padding { padding: 1.5rem 0.75rem; } }
 
-        .category-card:hover { transform: translateY(-5px); transition: 0.3s; }
+        /* Animation Fix */
+        #hero-text { transition: opacity 0.6s ease-in-out, transform 0.6s ease-out; }
         
-        /* Floating WhatsApp Button */
+        /* Mobile Menu */
+        #mobile-nav { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
+        #mobile-nav.open { transform: translateY(0); }
+
         .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-            cursor: pointer;
+            position: fixed; bottom: 20px; right: 20px; background: #25d366;
+            color: white; width: 55px; height: 55px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000;
         }
-
-        .cart-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-        }
+        .cart-badge { position: absolute; top: -2px; right: -2px; background: var(--primary); color: white; border-radius: 50%; padding: 1px 5px; font-size: 10px; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-white text-gray-900">
 
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fas fa-drumstick-bite text-red-700 text-3xl"></i>
-                <span class="text-2xl font-bold text-red-800 oswald">Legacy Meats Hub</span>
+                <i class="fas fa-drumstick-bite text-red-800 text-4xl"></i>
+                <span class="text-2xl font-bold text-red-900 oswald tracking-tighter">Legacy Meats Hub</span>
             </div>
-            <nav class="hidden md:flex space-x-6 font-semibold">
-                <a href="#products" class="hover:text-red-700">Shop Meat</a>
-                <a href="#about" class="hover:text-red-700">Our Story</a>
-                <a href="#wholesale" class="hover:text-red-700">Wholesale</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <a href="tel:+254729466466" class="hidden sm:block font-bold text-red-700"><i class="fas fa-phone mr-2"></i>+254 729 466466</a>
-                <button onclick="toggleCart()" class="relative p-2">
-                    <i class="fas fa-shopping-cart text-xl"></i>
+            
+            <div class="flex items-center space-x-2">
+                <nav class="hidden md:flex space-x-6 font-semibold text-sm mr-4">
+                    <a href="#products" class="hover:text-red-800">Shop</a>
+                    <a href="wholesale.html" class="hover:text-red-800 text-red-700">Wholesale</a>
+                    <a href="#testimonials" class="hover:text-red-800">Reviews</a>
+                </nav>
+                
+                <button onclick="toggleCart()" class="relative p-2 bg-gray-50 rounded-full">
+                    <i class="fas fa-shopping-cart text-lg"></i>
                     <span id="cart-count" class="cart-badge">0</span>
+                </button>
+
+                <button onclick="toggleMenu()" class="md:hidden p-2 text-red-900 border border-gray-100 rounded">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav" class="fixed top-0 left-0 w-full bg-black text-white z-[60] p-6 shadow-2xl md:hidden">
+        <div class="flex justify-between items-center mb-8">
+            <span class="oswald font-bold text-xl">Menu</span>
+            <button onclick="toggleMenu()" class="text-3xl">&times;</button>
+        </div>
+        <nav class="flex flex-col space-y-6 text-center oswald text-2xl">
+            <a href="#products" onclick="toggleMenu()">Shop Quality Meat</a>
+            <a href="wholesale.html" onclick="toggleMenu()">Wholesale Supply</a>
+            <a href="#testimonials" onclick="toggleMenu()">Happy Clients</a>
+            <a href="tel:+254729466466" class="text-red-500">CONTACT US</a>
+        </nav>
+    </div>
+
     <!-- Hero Section -->
-    <section class="relative h-[85vh] bg-black flex items-center overflow-hidden">
-        <div class="absolute inset-0 opacity-60">
-            <img id="hero-bg" src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover" alt="Prime Meat Cuts">
+    <section class="relative h-[35vh] md:h-[65vh] bg-black flex items-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img id="hero-bg" src="https://images.unsplash.com/photo-1603360946369-39c9f458f7e3?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover opacity-60" alt="Quality Meat">
         </div>
-        <div class="container mx-auto px-4 relative z-10 text-white text-center md:text-left">
-            <h2 id="hero-text" class="text-4xl md:text-7xl font-bold oswald hero-animate leading-tight mb-4">
+        <div class="container mx-auto px-4 relative z-10 text-white">
+            <p class="text-red-500 font-bold uppercase text-xs md:text-sm tracking-widest mb-1">Nairobi’s Best Wholesale Meat Supplier</p>
+            <h1 id="hero-text" class="text-2xl md:text-6xl font-bold oswald leading-none max-w-4xl mb-4">
                 Quality Meat for Your Family
-            </h2>
-            <p class="text-lg md:text-2xl mb-8 max-w-2xl">Experience the finest cuts at Kasarani's premier meat hub. Fresh, premium, and delivered to your doorstep.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <a href="#products" class="bg-red-700 hover:bg-red-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">ORDER ONLINE NOW</a>
-                <a href="tel:+254729466466" class="bg-white text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition hover:bg-gray-100 shadow-lg">CALL FOR INQUIRIES</a>
+            </h1>
+            <div class="flex gap-2">
+                <a href="#products" class="bg-red-800 text-white px-4 py-2 rounded font-bold text-xs uppercase hover:bg-red-700">Order Online</a>
+                <a href="tel:+254729466466" class="bg-white text-black px-4 py-2 rounded font-bold text-xs uppercase hover:bg-gray-200">CONTACT US</a>
             </div>
+        </div>
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white animate-bounce hidden md:block">
+            <a href="#products"><i class="fas fa-chevron-down text-2xl"></i></a>
         </div>
     </section>
 
-    <!-- Categories -->
-    <section id="products" class="py-16 container mx-auto px-4">
-        <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 oswald">Our Premium Selection</h2>
+    <!-- Top Products -->
+    <section id="products" class="section-padding container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+            <h2 class="text-2xl md:text-4xl font-bold oswald">Top Products</h2>
+            <div class="flex gap-1 mt-2 md:mt-0 overflow-x-auto whitespace-nowrap">
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#BEEF</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#GOAT</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#CHICKEN</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#STEAK</span>
+            </div>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             <!-- Beef -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden category-card">
-                <img src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?auto=format&fit=crop&q=80&w=500" class="w-full h-48 object-cover" alt="Fresh Beef">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold oswald mb-2">Prime Beef</h3>
-                    <p class="text-gray-600 mb-4">Freshly slaughtered, tender cuts for every meal.</p>
+            <div class="bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="overflow-hidden h-32 md:h-48">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Beef">
+                </div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Beef</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Fresh, tender cuts for every meal.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-700 font-bold text-lg">Ksh 750 / Kg</span>
-                        <button onclick="addToCart('Prime Beef', 750)" class="bg-red-700 text-white px-4 py-2 rounded text-sm hover:bg-red-800">Add to Cart</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 750 / Kg</span>
+                        <button onclick="addToCart('Beef', 750)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
                     </div>
                 </div>
             </div>
-
             <!-- Goat -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden category-card">
-                <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5e?auto=format&fit=crop&q=80&w=500" class="w-full h-48 object-cover" alt="Goat Meat">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold oswald mb-2">Goat Meat</h3>
-                    <p class="text-gray-600 mb-4">Farm-fresh premium goat meat cuts.</p>
+            <div class="bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="overflow-hidden h-32 md:h-48">
+                    <img src="https://images.unsplash.com/photo-1602491673980-73aa38de027a?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Goat">
+                </div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Goat Meat</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Quality farm-fresh cuts.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-700 font-bold text-lg">Ksh 950 / Kg</span>
-                        <button onclick="addToCart('Goat Meat', 950)" class="bg-red-700 text-white px-4 py-2 rounded text-sm hover:bg-red-800">Add to Cart</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 950 / Kg</span>
+                        <button onclick="addToCart('Goat Meat', 950)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
                     </div>
                 </div>
             </div>
-
             <!-- Chicken -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden category-card">
-                <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&q=80&w=500" class="w-full h-48 object-cover" alt="Kienyeji Chicken">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold oswald mb-2">Kienyeji Chicken</h3>
-                    <p class="text-gray-600 mb-4">Tough, tasty, and authentic local chicken.</p>
+            <div class="bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="overflow-hidden h-32 md:h-48">
+                    <img src="https://images.unsplash.com/photo-1606728035253-49df89693f39?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Chicken">
+                </div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Kienyeji Chicken</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Authentic local taste.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-700 font-bold text-lg">Ksh 900 / Pc</span>
-                        <button onclick="addToCart('Kienyeji Chicken', 900)" class="bg-red-700 text-white px-4 py-2 rounded text-sm hover:bg-red-800">Add to Cart</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 950 / Pc</span>
+                        <button onclick="addToCart('Kienyeji Chicken', 950)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
                     </div>
                 </div>
             </div>
-
-            <!-- Liver -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden category-card">
-                <img src="https://images.unsplash.com/photo-1628268909376-e8c44bb3153f?auto=format&fit=crop&q=80&w=500" class="w-full h-48 object-cover" alt="Fresh Liver">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold oswald mb-2">Fresh Liver</h3>
-                    <p class="text-gray-600 mb-4">High nutrient, freshly sourced beef liver.</p>
+            <!-- Minced -->
+            <div class="bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="overflow-hidden h-32 md:h-48">
+                    <img src="https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Minced">
+                </div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Minced Meat</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Lean and high quality.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-700 font-bold text-lg">Ksh 900 / Kg</span>
-                        <button onclick="addToCart('Fresh Liver', 900)" class="bg-red-700 text-white px-4 py-2 rounded text-sm hover:bg-red-800">Add to Cart</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 850 / Kg</span>
+                        <button onclick="addToCart('Minced Meat', 850)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8">
+            <button class="text-red-800 font-bold oswald flex items-center mx-auto gap-2 group">
+                See More Products <i class="fas fa-arrow-down animate-bounce group-hover:translate-y-1 transition"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Wholesale Link Section -->
+    <section class="bg-black text-white py-8 border-y border-red-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-xl md:text-2xl font-bold oswald mb-2">Wholesale Supply</h2>
+            <p class="text-xs md:text-sm mb-4 text-gray-400">Consistent quality delivery for hotels, restaurants, and schools across Nairobi.</p>
+            <a href="wholesale.html" class="bg-red-800 text-white px-6 py-2 rounded font-bold text-sm uppercase">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Testimonials Layout 1 -->
+    <section id="testimonials" class="section-padding bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-8 oswald">Happy Clients</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-red-800">
+                    <div class="flex text-yellow-500 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-xs italic text-gray-600 mb-4">"We order wholesale meat for our restaurant here in Nairobi, and the quality has been excellent every time. Reliable supply, honest pricing, and the team is easy to work with."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-800 text-xs">CD</div>
+                        <div><h4 class="font-bold text-xs">Chef Davis</h4><p class="text-[10px] text-gray-400">Hotel Owner</p></div>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <div class="flex text-yellow-500 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-xs italic text-gray-600 mb-4">"Quality meat delivery at your doorstep exactly when promised. Their beef is incredibly tender. Best in Kasarani!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-800 text-xs">MW</div>
+                        <div><h4 class="font-bold text-xs">Mercy W.</h4><p class="text-[10px] text-gray-400">Verified Home Buyer</p></div>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <div class="flex text-yellow-500 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-xs italic text-gray-600 mb-4">"Legacy Meats is my go-to for events. Their kienyeji chicken is authentic and fresh. Great service!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-800 text-xs">JK</div>
+                        <div><h4 class="font-bold text-xs">John K.</h4><p class="text-[10px] text-gray-400">Event Organizer</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Wholesale Section -->
-    <section id="wholesale" class="bg-red-900 text-white py-16">
-        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Vision & Mission -->
+    <section class="section-padding bg-white">
+        <div class="container mx-auto max-w-4xl grid md:grid-cols-2 gap-8">
+            <div class="bg-gray-50 p-6 rounded border border-gray-100">
+                <h3 class="text-xl font-bold oswald mb-3 text-red-900">Our Vision</h3>
+                <p class="text-xs leading-relaxed">To be the most trusted meat hub in Kenya, known for integrity, consistent quality, and setting the standard for fresh, safe, and quality meat products.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded border border-gray-100">
+                <h3 class="text-xl font-bold oswald mb-3 text-red-900">Our Mission</h3>
+                <p class="text-xs leading-relaxed">To provide our customers with the finest cuts of fresh beef, goat, and chicken through honest practices, hard work, and focused commitment to quality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 border-t border-red-900">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-sm">
             <div>
-                <h2 class="text-4xl font-bold oswald mb-6">Bulk Supply for Businesses</h2>
-                <p class="text-xl mb-8 leading-relaxed">
-                    We supply meat in wholesale quantities to <strong>hotels, restaurants, schools, and caterers</strong>. Delivering consistent quality, dependable supply, and competitive pricing across Nairobi.
-                </p>
-                <ul class="space-y-4 mb-8">
-                    <li><i class="fas fa-check-circle mr-2 text-yellow-500"></i> Event Catering Packs</li>
-                    <li><i class="fas fa-check-circle mr-2 text-yellow-500"></i> Weekly Restaurant Deliveries</li>
-                    <li><i class="fas fa-check-circle mr-2 text-yellow-500"></i> Quality Assurance Guaranteed</li>
-                </ul>
-                <a href="https://wa.me/254729466466?text=I%20am%20interested%20in%20wholesale%20supply" class="bg-yellow-500 text-red-900 px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition inline-block">GET WHOLESALE QUOTE</a>
+                <h4 class="oswald text-red-600 text-xl mb-4">Find Us</h4>
+                <p class="text-gray-400 mb-2 text-xs"><i class="fas fa-map-marker-alt mr-2 text-red-700"></i> Kahura Kanua Road, Kasarani, Nairobi</p>
+                <p class="text-gray-400 text-xs"><i class="fas fa-clock mr-2 text-red-700"></i> Open 9 AM - 10 PM Daily</p>
             </div>
-            <div class="rounded-2xl overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&q=80&w=600" alt="Butcher at Work">
+            <div>
+                <h4 class="oswald text-red-600 text-xl mb-4">Contact</h4>
+                <a href="tel:+254729466466" class="block text-gray-400 mb-2 text-xs font-bold"><i class="fas fa-phone mr-2 text-red-700"></i> +254 729 466466</a>
+                <p class="text-gray-400 text-xs"><i class="fas fa-envelope mr-2 text-red-700"></i> legacymeatshub@gmail.com</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-xl hover:text-red-600 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-xl hover:text-red-600 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-xl hover:text-red-600 transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="oswald text-red-600 text-xl mb-4">Delivery Areas</h4>
+                <p class="text-gray-500 text-[10px] uppercase tracking-wider">Kasarani • Mwiki • Roysambu • Clay City • Thika Road • Nairobi CBD</p>
+                <p class="mt-4 text-xs text-gray-400">Quality tasty meat delivery at your doorstep.</p>
             </div>
         </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-16 container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 oswald">What Our Clients Say</h2>
-        <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg border-l-8 border-red-700">
-            <p class="text-xl italic text-gray-700 mb-4">"We order wholesale meat for our restaurant here in Nairobi, and the quality has been excellent every time. Reliable supply, honest pricing, and the team is easy to work with."</p>
-            <div class="flex items-center">
-                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-red-800 mr-4">CD</div>
-                <div>
-                    <h4 class="font-bold">— Chef Davis</h4>
-                    <p class="text-sm text-gray-500">Hotel & Restaurant Owner</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold oswald">About Legacy Meats Hub</h2>
-                <p class="text-red-700 font-bold uppercase tracking-widest mt-2">Integrity • Quality • Hard Work</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-8 rounded-xl shadow">
-                    <h3 class="text-2xl font-bold oswald mb-4 text-red-800">Our Vision</h3>
-                    <p>To be the most trusted and preferred meat hub in Kenya, known for integrity, consistent quality, and exceptional service, while setting the standard for fresh, safe, and delicious meat products.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow">
-                    <h3 class="text-2xl font-bold oswald mb-4 text-red-800">Our Mission</h3>
-                    <p>To provide our customers with the finest cuts of fresh beef, goat, and chicken through honest practices, hard work, and focused commitment to quality.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact/Footer -->
-    <footer class="bg-dark text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <h4 class="text-2xl oswald mb-6">Find Us</h4>
-                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-3 text-red-500"></i> Kahura Kanua Road, Kasarani</p>
-                    <p class="mb-2"><i class="fas fa-road mr-3 text-red-500"></i> Off Mwiki Road, Nairobi</p>
-                    <p class="mb-2"><i class="fas fa-clock mr-3 text-red-500"></i> Mon - Sun: 9:00 AM - 10:00 PM</p>
-                </div>
-                <div>
-                    <h4 class="text-2xl oswald mb-6">Contact</h4>
-                    <p class="mb-2"><i class="fas fa-phone-alt mr-3 text-red-500"></i> +254 729 466466</p>
-                    <p class="mb-2"><i class="fas fa-envelope mr-3 text-red-500"></i> legacymeatshub@gmail.com</p>
-                    <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-3xl hover:text-red-500"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-3xl hover:text-red-500"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-3xl hover:text-red-500"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-2xl oswald mb-6">Service Area</h4>
-                    <p class="text-gray-400">Delivering quality tasty meat at affordable prices across:</p>
-                    <ul class="mt-4 grid grid-cols-2 gap-2">
-                        <li>• Kasarani</li>
-                        <li>• Mwiki</li>
-                        <li>• Roysambu</li>
-                        <li>• Clay City</li>
-                        <li>• Hunters</li>
-                        <li>• Thika Road</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-                <p>&copy; 2026 Legacy Meats Hub. Managed by Mainadev. #mainadev #dev</p>
-            </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-900 text-[10px] text-gray-700">
+            &copy; 2026 Legacy Meats Hub. Managed by Mainadev. #mainadev #dev
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <div onclick="checkout()" class="whatsapp-float">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/254729466466" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
-    </div>
+    </a>
 
-    <!-- Simple Cart UI -->
-    <div id="cart-drawer" class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform z-[60] p-6">
+    <!-- Cart Sidebar -->
+    <div id="cart-drawer" class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform z-[70] p-6 text-sm">
         <div class="flex justify-between items-center mb-6">
-            <h3 class="text-xl font-bold oswald">Your Order</h3>
+            <h3 class="font-bold oswald text-xl">My Order</h3>
             <button onclick="toggleCart()" class="text-2xl">&times;</button>
         </div>
-        <div id="cart-items" class="space-y-4 mb-6 max-h-[60vh] overflow-y-auto">
-            <p class="text-gray-500 text-center">Cart is empty</p>
+        <div id="cart-items" class="space-y-4 mb-6 max-h-[70vh] overflow-y-auto">
+            <p class="text-gray-400 text-center">Cart is empty</p>
         </div>
-        <div id="cart-footer" class="hidden">
-            <div class="flex justify-between font-bold border-t pt-4 mb-6">
+        <div id="cart-footer" class="hidden border-t pt-4">
+            <div class="flex justify-between font-bold mb-6">
                 <span>Total:</span>
                 <span id="cart-total">Ksh 0</span>
             </div>
-            <button onclick="checkout()" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 flex items-center justify-center">
-                <i class="fab fa-whatsapp mr-2"></i> COMPLETE VIA WHATSAPP
+            <button onclick="checkout()" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg text-xs hover:bg-green-700 transition">
+                COMPLETE ON WHATSAPP
             </button>
         </div>
     </div>
 
     <script>
-        // Hero Animation Logic
         const heroSlides = [
-            { text: "Quality Meat for Hotels & Cafes", bg: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&q=80&w=1200" },
-            { text: "Fresh Cuts for Homes & Events", bg: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=1200" },
-            { text: "Premium Meat Delivery in Kasarani", bg: "https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&q=80&w=1200" }
+            { text: "Quality Meat for Your Family", bg: "https://images.unsplash.com/photo-1603360946369-39c9f458f7e3?auto=format&fit=crop&q=80&w=1200" },
+            { text: "Fresh Cuts Delivery at Your Doorstep", bg: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" },
+            { text: "Quality Meat for Hotels & Cafes", bg: "https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?auto=format&fit=crop&q=80&w=1200" }
         ];
         let currentSlide = 0;
         
         function rotateHero() {
             const textEl = document.getElementById('hero-text');
             const bgEl = document.getElementById('hero-bg');
-            
             currentSlide = (currentSlide + 1) % heroSlides.length;
             
             textEl.style.opacity = '0';
+            textEl.style.transform = 'translateY(10px)';
+            
             setTimeout(() => {
                 textEl.innerText = heroSlides[currentSlide].text;
                 bgEl.src = heroSlides[currentSlide].bg;
                 textEl.style.opacity = '1';
-            }, 500);
+                textEl.style.transform = 'translateY(0)';
+            }, 600);
         }
         setInterval(rotateHero, 5000);
 
-        // Cart Logic
-        let cart = [];
-        
-        function toggleCart() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('translate-x-full');
-        }
+        function toggleMenu() { document.getElementById('mobile-nav').classList.toggle('open'); }
 
+        let cart = [];
+        function toggleCart() { document.getElementById('cart-drawer').classList.toggle('translate-x-full'); }
+        
         function addToCart(name, price) {
             cart.push({ name, price });
             updateCartUI();
-            if(document.getElementById('cart-drawer').classList.contains('translate-x-full')) {
-                toggleCart();
-            }
+            if(document.getElementById('cart-drawer').classList.contains('translate-x-full')) toggleCart();
         }
 
         function updateCartUI() {
@@ -364,11 +328,10 @@
             const footer = document.getElementById('cart-footer');
             const count = document.getElementById('cart-count');
             const totalEl = document.getElementById('cart-total');
-            
             count.innerText = cart.length;
             
             if (cart.length === 0) {
-                container.innerHTML = '<p class="text-gray-500 text-center">Cart is empty</p>';
+                container.innerHTML = '<p class="text-gray-400 text-center">Cart is empty</p>';
                 footer.classList.add('hidden');
                 return;
             }
@@ -377,42 +340,16 @@
             let total = 0;
             container.innerHTML = cart.map((item, index) => {
                 total += item.price;
-                return `
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <div>
-                            <p class="font-bold">${item.name}</p>
-                            <p class="text-sm text-gray-500">Ksh ${item.price}</p>
-                        </div>
-                        <button onclick="removeItem(${index})" class="text-red-500"><i class="fas fa-trash"></i></button>
-                    </div>
-                `;
+                return `<div class="flex justify-between items-center border-b pb-2"><div class="text-xs"><b>${item.name}</b><br><span class="text-gray-500">Ksh ${item.price}</span></div><button onclick="removeItem(${index})" class="text-red-700"><i class="fas fa-trash"></i></button></div>`;
             }).join('');
-            
             totalEl.innerText = `Ksh ${total}`;
         }
 
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
+        function removeItem(i) { cart.splice(i, 1); updateCartUI(); }
 
         function checkout() {
-            if (cart.length === 0) {
-                window.open("https://wa.me/254729466466?text=Hi%20Legacy%20Meats%20Hub,%20I%20would%20like%20to%20make%20an%20inquiry.", "_blank");
-                return;
-            }
-
-            let message = "Hi Legacy Meats Hub, I would like to place an order:\n\n";
-            let total = 0;
-            cart.forEach(item => {
-                message += `- ${item.name}: Ksh ${item.price}\n`;
-                total += item.price;
-            });
-            message += `\n*Total: Ksh ${total}*`;
-            message += `\n\nDelivery Location: (Please enter your location here)`;
-            
-            const encoded = encodeURIComponent(message);
-            window.open(`https://wa.me/254729466466?text=${encoded}`, "_blank");
+            let message = "Hi Legacy Meats Hub, I would like to order:\n" + cart.map(i => `- ${i.name} (Ksh ${i.price})`).join('\n') + `\n\nTotal: Ksh ${document.getElementById('cart-total').innerText}`;
+            window.open(`https://wa.me/254729466466?text=${encodeURIComponent(message)}`, "_blank");
         }
     </script>
 </body>
