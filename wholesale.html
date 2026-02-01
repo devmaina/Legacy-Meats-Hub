@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Supply | Legacy Meats Hub Nairobi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { 
+            --primary: #7f1d1d; 
+            --primary-light: #dc2626;
+            --dark: #0a0a0a; 
+            --overlay: rgba(0, 0, 0, 0.4);
+        }
+        
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        
+        /* Feature Cards */
+        .feature-card { transition: all 0.3s ease; border-top-width: 4px; border-top-color: var(--primary); }
+        .feature-card:hover { border-color: var(--primary-light); transform: translateY(-5px); }
+        
+        /* Hero Section */
+        .hero-bg { 
+            background-image: url('https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-overlay { background-color: var(--overlay); }
 
+        /* Category Cards */
+        .cat-card { height: 16rem; position: relative; overflow: hidden; border-radius: 0.75rem; }
+        .cat-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .cat-card:hover .cat-img { transform: scale(1.1); }
+        .cat-gradient { 
+            position: absolute; 
+            inset: 0; 
+            background: linear-gradient(to top, black, transparent); 
+            padding: 1.5rem; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; 
+        }
+
+        /* Forms */
+        .form-input { 
+            width: 100%; 
+            background-color: #111827; 
+            border: 1px solid #1f2937; 
+            padding: 0.75rem; 
+            border-radius: 0.25rem; 
+            outline: none; 
+            font-size: 0.875rem;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus { border-color: var(--primary-light); }
+        .label-style { 
+            display: block; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase; 
+            color: #6b7280; 
+            letter-spacing: 0.1em; 
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-drumstick-bite text-red-800 text-3xl"></i>
+                <span class="text-xl font-bold text-red-900 oswald tracking-tighter">Legacy Meats Wholesale</span>
+            </a>
+            <a href="index.html" class="text-xs font-bold uppercase hover:text-red-800 border-b-2 border-red-800">Back to Retail</a>
+        </div>
+    </header>
+
+    <!-- Wholesale Hero -->
+    <section class="relative py-16 bg-black text-white overflow-hidden hero-bg">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold oswald mb-4">Partner With Nairobi's <br><span class="text-red-600">Best Wholesale Supplier</span></h1>
+            <p class="max-w-2xl text-gray-300 text-sm md:text-lg mb-8 leading-relaxed">Powering Hotels, Restaurants, Schools, and Hospitals with consistent quality, competitive pricing, and reliable logistics.</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/254729466466?text=I%20need%20a%20wholesale%20price%20list" class="bg-red-800 px-8 py-3 rounded font-bold oswald text-sm hover:bg-red-700 transition">Download Price List</a>
+                <a href="#contact" class="bg-white text-black px-8 py-3 rounded font-bold oswald text-sm hover:bg-gray-200 transition">Apply for Credit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Features -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded shadow-sm feature-card">
+                <i class="fas fa-file-invoice-dollar text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold oswald mb-2">Smart Invoicing</h3>
+                <p class="text-xs text-gray-500">VAT compliant invoicing and digital statements for easy accounting.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow-sm feature-card">
+                <i class="fas fa-credit-card text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold oswald mb-2">Flexible Credit</h3>
+                <p class="text-xs text-gray-500">30-day credit facilities available for verified long-term partners.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow-sm feature-card">
+                <i class="fas fa-truck-fast text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold oswald mb-2">Priority Delivery</h3>
+                <p class="text-xs text-gray-500">Scheduled early-morning deliveries to ensure fresh stock daily.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow-sm feature-card">
+                <i class="fas fa-shield-halved text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold oswald mb-2">HACCP Standards</h3>
+                <p class="text-xs text-gray-500">Strict quality controls and cold-chain management from farm to kitchen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Categories -->
+    <section class="py-16 container mx-auto px-4">
+        <h2 class="text-3xl font-bold oswald mb-12 text-center">B2B Product Range</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="cat-card group">
+                <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=600" class="cat-img" alt="Bulk Beef">
+                <div class="cat-gradient">
+                    <h3 class="text-white font-bold oswald text-2xl">Bulk Beef Cuts</h3>
+                    <p class="text-red-400 text-xs font-bold uppercase">Prime Rib, Sirloin, Brisket</p>
+                </div>
+            </div>
+            <div class="cat-card group">
+                <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&q=80&w=600" class="cat-img" alt="Poultry">
+                <div class="cat-gradient">
+                    <h3 class="text-white font-bold oswald text-2xl">Poultry Supply</h3>
+                    <p class="text-red-400 text-xs font-bold uppercase">Full Chicken, Wings, Drumsticks</p>
+                </div>
+            </div>
+            <div class="cat-card group">
+                <img src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?auto=format&fit=crop&q=80&w=600" class="cat-img" alt="Goat">
+                <div class="cat-gradient">
+                    <h3 class="text-white font-bold oswald text-2xl">Goat & Mutton</h3>
+                    <p class="text-red-400 text-xs font-bold uppercase">Full Carcass or Primal Cuts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Inquiry -->
+    <section id="contact" class="py-16 bg-red-950 text-white">
+        <div class="container mx-auto px-4 max-w-4xl bg-black p-8 md:p-12 rounded-2xl border border-red-900">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold oswald mb-4">Request a Partnership</h2>
+                <p class="text-gray-400">Fill the form below or contact our wholesale manager at +254 729 466466</p>
+            </div>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="label-style">Business Name</label>
+                    <input type="text" placeholder="e.g. Sarova Hotels" class="form-input">
+                </div>
+                <div>
+                    <label class="label-style">Contact Person</label>
+                    <input type="text" placeholder="Full Name" class="form-input">
+                </div>
+                <div>
+                    <label class="label-style">Monthly Est. Volume (Kg)</label>
+                    <input type="number" placeholder="e.g. 500" class="form-input">
+                </div>
+                <div>
+                    <label class="label-style">Phone Number</label>
+                    <input type="tel" placeholder="+254..." class="form-input">
+                </div>
+                <div class="md:col-span-2">
+                    <button type="button" onclick="window.location.href='https://wa.me/254729466466?text=Wholesale%20Inquiry'" class="w-full bg-red-800 py-4 rounded font-bold oswald text-lg tracking-widest hover:bg-red-700 transition">SEND INQUIRY</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8 border-t border-red-900">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs text-gray-600">&copy; 2026 Legacy Meats Wholesale. Managed by Mainadev. #mainadev #dev</p>
+        </div>
+    </footer>
+
+</body>
+</html>
