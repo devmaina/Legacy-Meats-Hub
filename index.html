@@ -16,11 +16,14 @@
         body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
         h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
+        /* Smooth Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
         .section-padding { padding: 2rem 1rem; }
         @media (max-width: 768px) { .section-padding { padding: 1.5rem 0.75rem; } }
 
         #hero-text { transition: opacity 0.6s ease-in-out, transform 0.6s ease-out; }
-        
         #mobile-nav { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
         #mobile-nav.open { transform: translateY(0); }
 
@@ -32,7 +35,6 @@
         }
         .cart-badge { position: absolute; top: -2px; right: -2px; background: var(--primary); color: white; border-radius: 50%; padding: 1px 5px; font-size: 10px; }
 
-        /* Custom Mobile Grid */
         @media (max-width: 767px) {
             .product-grid { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
             .product-card { width: 80vw !important; margin: 0 auto; }
@@ -45,23 +47,20 @@
     <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <!-- Replaced drumstick with logo.PNG -->
-                <img src="logo.PNG" alt="Legacy Meats Hub Logo" class="h-12 w-auto" onerror="this.onerror=null; this.src='https://via.placeholder.com/50?text=LMH';">
+                <img src="logo.PNG" alt="Legacy Meats Hub Logo" class="h-10 w-auto" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3014/3014497.png'">
                 <span class="text-2xl font-bold text-red-900 oswald tracking-tighter">Legacy Meats Hub</span>
             </div>
             
             <div class="flex items-center space-x-2">
                 <nav class="hidden md:flex space-x-6 font-semibold text-sm mr-4">
                     <a href="#products" class="hover:text-red-800">Shop</a>
-                    <a href="#" class="hover:text-red-800 text-red-700">Wholesale</a>
+                    <a href="wholesale.html" class="hover:text-red-800 text-red-700">Wholesale</a>
                     <a href="#testimonials" class="hover:text-red-800">Reviews</a>
                 </nav>
-                
                 <button onclick="toggleCart()" class="relative p-2 bg-gray-50 rounded-full">
                     <i class="fas fa-shopping-cart text-lg"></i>
                     <span id="cart-count" class="cart-badge">0</span>
                 </button>
-
                 <button onclick="toggleMenu()" class="md:hidden p-2 text-red-900 border border-gray-100 rounded">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
@@ -69,7 +68,7 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
+    <!-- Mobile Nav -->
     <div id="mobile-nav" class="fixed top-0 left-0 w-full bg-black text-white z-[60] p-6 shadow-2xl md:hidden">
         <div class="flex justify-between items-center mb-8">
             <span class="oswald font-bold text-xl">Menu</span>
@@ -77,20 +76,20 @@
         </div>
         <nav class="flex flex-col space-y-6 text-center oswald text-2xl">
             <a href="#products" onclick="toggleMenu()">Shop Quality Meat</a>
-            <a href="#" onclick="toggleMenu()">Wholesale Supply</a>
+            <a href="wholesale.html" onclick="toggleMenu()">Wholesale Supply</a>
             <a href="#testimonials" onclick="toggleMenu()">Happy Clients</a>
             <a href="tel:+254729466466" class="text-red-500">CONTACT US</a>
         </nav>
     </div>
 
-    <!-- Hero Section -->
-    <section class="relative h-[40vh] md:h-[65vh] bg-black flex items-center overflow-hidden">
+    <!-- Hero -->
+    <section class="relative h-[35vh] md:h-[65vh] bg-black flex items-center overflow-hidden">
         <div class="absolute inset-0">
             <img id="hero-bg" src="https://images.unsplash.com/photo-1603360946369-39c9f458f7e3?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover opacity-60" alt="Quality Meat">
         </div>
         <div class="container mx-auto px-4 relative z-10 text-white">
             <p class="text-red-500 font-bold uppercase text-xs md:text-sm tracking-widest mb-1">Nairobi’s Best Wholesale Meat Supplier</p>
-            <h1 id="hero-text" class="text-3xl md:text-6xl font-bold oswald leading-none max-w-4xl mb-4">
+            <h1 id="hero-text" class="text-2xl md:text-6xl font-bold oswald leading-none max-w-4xl mb-4">
                 Quality Meat for Your Family
             </h1>
             <div class="flex gap-2">
@@ -101,79 +100,124 @@
     </section>
 
     <!-- Products -->
-    <section id="products" class="section-padding container mx-auto">
+    <section id="products" class="section-padding container mx-auto reveal">
         <div class="flex flex-col md:flex-row justify-between items-center mb-6">
-            <h2 class="text-2xl md:text-4xl font-bold oswald">Available Products</h2>
+            <h2 class="text-2xl md:text-4xl font-bold oswald">Top Products</h2>
             <div class="flex gap-1 mt-2 md:mt-0 overflow-x-auto whitespace-nowrap">
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#DAIRY</span>
                 <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#BEEF</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#POULTRY</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#GOAT</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#CHICKEN</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#DAIRY</span>
             </div>
         </div>
         
-        <div id="product-list" class="product-grid md:grid md:grid-cols-4 md:gap-6">
-            <!-- Initial Products -->
+        <div id="product-list" class="product-grid md:grid md:grid-cols-4 gap-3 md:gap-6">
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-48">
-                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Beef">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-lg oswald">Prime Beef</h3>
-                    <p class="text-gray-500 text-xs mb-2">Fresh, tender cuts for every meal.</p>
+                <div class="overflow-hidden h-32 md:h-48"><img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Beef"></div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Beef</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Fresh, tender cuts for every meal.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-800 font-bold text-sm">Ksh 750 / Kg</span>
-                        <button onclick="addToCart('Prime Beef', 750)" class="bg-red-800 text-white px-4 py-1 rounded text-xs uppercase font-bold">Add</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 750 / Kg</span>
+                        <button onclick="addToCart('Beef', 750)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
                     </div>
                 </div>
             </div>
-
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-48">
-                    <img src="https://images.unsplash.com/photo-1602491673980-73aa38de027a?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Goat">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-lg oswald">Goat Meat</h3>
-                    <p class="text-gray-500 text-xs mb-2">Quality farm-fresh cuts.</p>
+                <div class="overflow-hidden h-32 md:h-48"><img src="https://images.unsplash.com/photo-1602491673980-73aa38de027a?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Goat"></div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Goat Meat</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Quality farm-fresh cuts.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-800 font-bold text-sm">Ksh 950 / Kg</span>
-                        <button onclick="addToCart('Goat Meat', 950)" class="bg-red-800 text-white px-4 py-1 rounded text-xs uppercase font-bold">Add</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 950 / Kg</span>
+                        <button onclick="addToCart('Goat Meat', 950)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
                     </div>
                 </div>
             </div>
-
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-48">
-                    <img src="https://images.unsplash.com/photo-1606728035253-49df89693f39?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Chicken">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-lg oswald">Kienyeji Chicken</h3>
-                    <p class="text-gray-500 text-xs mb-2">Authentic local taste.</p>
+                <div class="overflow-hidden h-32 md:h-48"><img src="https://images.unsplash.com/photo-1606728035253-49df89693f39?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Chicken"></div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Kienyeji Chicken</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Authentic local taste.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-800 font-bold text-sm">Ksh 950 / Pc</span>
-                        <button onclick="addToCart('Kienyeji Chicken', 950)" class="bg-red-800 text-white px-4 py-1 rounded text-xs uppercase font-bold">Add</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 950 / Pc</span>
+                        <button onclick="addToCart('Kienyeji Chicken', 950)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
                     </div>
                 </div>
             </div>
-
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-48">
-                    <img src="https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Minced">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-lg oswald">Minced Meat</h3>
-                    <p class="text-gray-500 text-xs mb-2">Lean and high quality.</p>
+                <div class="overflow-hidden h-32 md:h-48"><img src="https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Minced"></div>
+                <div class="p-3">
+                    <h3 class="font-bold text-sm md:text-lg oswald">Minced Meat</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-2">Lean and high quality.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-red-800 font-bold text-sm">Ksh 850 / Kg</span>
-                        <button onclick="addToCart('Minced Meat', 850)" class="bg-red-800 text-white px-4 py-1 rounded text-xs uppercase font-bold">Add</button>
+                        <span class="text-red-800 font-bold text-xs md:text-sm">Ksh 850 / Kg</span>
+                        <button onclick="addToCart('Minced Meat', 850)" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="text-center mt-12" id="more-trigger">
-            <button onclick="loadMoreProducts()" class="text-red-800 font-bold oswald flex items-center mx-auto gap-2 group border-2 border-red-800 px-6 py-2 rounded-full hover:bg-red-800 hover:text-white transition">
-                See More Products <i class="fas fa-plus group-hover:rotate-90 transition"></i>
+        <div class="text-center mt-8" id="more-trigger">
+            <button onclick="loadMoreProducts()" class="text-red-800 font-bold oswald flex items-center mx-auto gap-2 group border border-red-800 px-6 py-2 rounded-full hover:bg-red-800 hover:text-white transition">
+                See More Products <i class="fas fa-arrow-down animate-bounce"></i>
             </button>
+        </div>
+    </section>
+
+    <!-- Wholesale Link -->
+    <section class="bg-black text-white py-8 border-y border-red-900 reveal">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-xl md:text-2xl font-bold oswald mb-2">Wholesale Supply</h2>
+            <p class="text-xs md:text-sm mb-4 text-gray-400">Consistent quality delivery for hotels, restaurants, and schools across Nairobi.</p>
+            <a href="wholesale.html" class="bg-red-800 text-white px-6 py-2 rounded font-bold text-sm uppercase">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section-padding bg-gray-50 reveal">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-8 oswald">Happy Clients</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-red-800">
+                    <div class="flex text-yellow-500 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-xs italic text-gray-600 mb-4">"We order wholesale meat for our restaurant, and the quality has been excellent every time. Reliable supply."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-800 text-xs">CD</div>
+                        <div><h4 class="font-bold text-xs">Chef Davis</h4><p class="text-[10px] text-gray-400">Hotel Owner</p></div>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <div class="flex text-yellow-500 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-xs italic text-gray-600 mb-4">"Quality meat delivery exactly when promised. Their beef is incredibly tender. Best in Kasarani!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-800 text-xs">MW</div>
+                        <div><h4 class="font-bold text-xs">Mercy W.</h4><p class="text-[10px] text-gray-400">Verified Home Buyer</p></div>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <div class="flex text-yellow-500 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-xs italic text-gray-600 mb-4">"Legacy Meats is my go-to for events. Their kienyeji chicken is authentic and fresh. Great service!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-800 text-xs">JK</div>
+                        <div><h4 class="font-bold text-xs">John K.</h4><p class="text-[10px] text-gray-400">Event Organizer</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision/Mission -->
+    <section class="section-padding bg-white reveal">
+        <div class="container mx-auto max-w-4xl grid md:grid-cols-2 gap-8">
+            <div class="bg-gray-50 p-6 rounded border border-gray-100">
+                <h3 class="text-xl font-bold oswald mb-3 text-red-900">Our Vision</h3>
+                <p class="text-xs">To be the most trusted meat hub in Kenya, setting the standard for fresh, safe, and quality products.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded border border-gray-100">
+                <h3 class="text-xl font-bold oswald mb-3 text-red-900">Our Mission</h3>
+                <p class="text-xs">To provide customers with finest cuts of beef, goat, and chicken through honest practices.</p>
+            </div>
         </div>
     </section>
 
@@ -182,17 +226,16 @@
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-sm">
             <div>
                 <h4 class="oswald text-red-600 text-xl mb-4">Find Us</h4>
-                <p class="text-gray-400 mb-2 text-xs"><i class="fas fa-map-marker-alt mr-2 text-red-700"></i> Kahura Kanua Road, Kasarani, Nairobi</p>
-                <p class="text-gray-400 text-xs"><i class="fas fa-clock mr-2 text-red-700"></i> Open 9 AM - 10 PM Daily</p>
+                <p class="text-gray-400 text-xs"><i class="fas fa-map-marker-alt mr-2 text-red-700"></i> Kahura Kanua Road, Kasarani, Nairobi</p>
             </div>
             <div>
                 <h4 class="oswald text-red-600 text-xl mb-4">Contact</h4>
-                <a href="tel:+254729466466" class="block text-gray-400 mb-2 text-xs font-bold"><i class="fas fa-phone mr-2 text-red-700"></i> +254 729 466466</a>
-                <p class="text-gray-400 text-xs"><i class="fas fa-envelope mr-2 text-red-700"></i> legacymeatshub@gmail.com</p>
+                <a href="tel:+254729466466" class="block text-gray-400 text-xs font-bold mb-2">+254 729 466466</a>
+                <p class="text-gray-400 text-xs">legacymeatshub@gmail.com</p>
             </div>
             <div>
                 <h4 class="oswald text-red-600 text-xl mb-4">Delivery</h4>
-                <p class="text-gray-500 text-[10px] uppercase tracking-wider">Kasarani • Mwiki • Thika Road • Nairobi CBD</p>
+                <p class="text-gray-500 text-[10px]">Kasarani • Mwiki • Roysambu • CBD</p>
             </div>
         </div>
         <div class="text-center mt-12 pt-8 border-t border-gray-900 text-[10px] text-gray-700">
@@ -200,39 +243,62 @@
         </div>
     </footer>
 
-    <!-- Floating Action -->
-    <a href="https://wa.me/254729466466" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/254729466466" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- Cart Drawer -->
+    <!-- Cart -->
     <div id="cart-drawer" class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform z-[70] p-6 text-sm">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold oswald text-xl">My Order</h3>
             <button onclick="toggleCart()" class="text-2xl">&times;</button>
         </div>
-        <div id="cart-items" class="space-y-4 mb-6 max-h-[70vh] overflow-y-auto">
-            <p class="text-gray-400 text-center">Cart is empty</p>
-        </div>
+        <div id="cart-items" class="space-y-4 mb-6 max-h-[70vh] overflow-y-auto"><p class="text-gray-400 text-center">Cart is empty</p></div>
         <div id="cart-footer" class="hidden border-t pt-4">
-            <div class="flex justify-between font-bold mb-6">
-                <span>Total:</span>
-                <span id="cart-total">Ksh 0</span>
-            </div>
-            <button onclick="checkout()" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg text-xs hover:bg-green-700 transition">
-                COMPLETE ON WHATSAPP
-            </button>
+            <div class="flex justify-between font-bold mb-6"><span>Total:</span><span id="cart-total">Ksh 0</span></div>
+            <button onclick="checkout()" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg text-xs">COMPLETE ON WHATSAPP</button>
         </div>
     </div>
 
     <script>
+        // Reveal on Scroll Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        // Slideshow
+        const heroSlides = [
+            { text: "Quality Meat for Your Family", bg: "https://images.unsplash.com/photo-1603360946369-39c9f458f7e3?auto=format&fit=crop&q=80&w=1200" },
+            { text: "Fresh Cuts Delivery at Your Doorstep", bg: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" },
+            { text: "Quality Meat for Hotels & Cafes", bg: "https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?auto=format&fit=crop&q=80&w=1200" }
+        ];
+        let currentSlide = 0;
+        setInterval(() => {
+            const textEl = document.getElementById('hero-text');
+            const bgEl = document.getElementById('hero-bg');
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            textEl.style.opacity = '0';
+            setTimeout(() => {
+                textEl.innerText = heroSlides[currentSlide].text;
+                bgEl.src = heroSlides[currentSlide].bg;
+                textEl.style.opacity = '1';
+            }, 600);
+        }, 5000);
+
+        // Products
         const extraProducts = [
-            { name: "Fresh Milk", price: 100, unit: "Litre", desc: "Pure farm fresh milk", img: "https://images.unsplash.com/photo-1550583724-125581f77833?auto=format&fit=crop&q=80&w=400" },
-            { name: "Fresh Eggs", price: 450, unit: "Tray", desc: "Grade A kienyeji eggs", img: "https://images.unsplash.com/photo-1582722872445-41dc50bfad57?auto=format&fit=crop&q=80&w=400" },
-            { name: "Matumbo", price: 400, unit: "Kg", desc: "Cleaned and fresh tripe", img: "https://images.unsplash.com/photo-1588168333986-5078d3ae3973?auto=format&fit=crop&q=80&w=400" },
-            { name: "Soup Bones", price: 250, unit: "Kg", desc: "Nutritious beef bones", img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&q=80&w=400" },
-            { name: "Bone Marrow", price: 450, unit: "Kg", desc: "Rich and creamy marrow", img: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&q=80&w=400" },
-            { name: "Mutton", price: 900, unit: "Kg", desc: "Premium sheep meat", img: "https://images.unsplash.com/photo-1602491673980-73aa38de027a?auto=format&fit=crop&q=80&w=400" }
+            { name: "Fresh Milk", price: 100, unit: "Litre", img: "https://images.unsplash.com/photo-1550583724-125581f77833?auto=format&fit=crop&q=80&w=400" },
+            { name: "Fresh Eggs", price: 450, unit: "Tray", img: "https://images.unsplash.com/photo-1582722872445-41dc50bfad57?auto=format&fit=crop&q=80&w=400" },
+            { name: "Matumbo", price: 400, unit: "Kg", img: "https://images.unsplash.com/photo-1588168333986-5078d3ae3973?auto=format&fit=crop&q=80&w=400" }
         ];
 
         function loadMoreProducts() {
@@ -240,19 +306,7 @@
             extraProducts.forEach(p => {
                 const card = document.createElement('div');
                 card.className = "product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group";
-                card.innerHTML = `
-                    <div class="overflow-hidden h-48">
-                        <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="${p.name}">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg oswald">${p.name}</h3>
-                        <p class="text-gray-500 text-xs mb-2">${p.desc}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-red-800 font-bold text-sm">Ksh ${p.price} / ${p.unit}</span>
-                            <button onclick="addToCart('${p.name}', ${p.price})" class="bg-red-800 text-white px-4 py-1 rounded text-xs uppercase font-bold">Add</button>
-                        </div>
-                    </div>
-                `;
+                card.innerHTML = `<div class="overflow-hidden h-32 md:h-48"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><div class="p-3"><h3 class="font-bold text-sm md:text-lg oswald">${p.name}</h3><div class="flex justify-between items-center mt-2"><span class="text-red-800 font-bold text-xs">Ksh ${p.price} / ${p.unit}</span><button onclick="addToCart('${p.name}', ${p.price})" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button></div></div>`;
                 list.appendChild(card);
             });
             document.getElementById('more-trigger').style.display = 'none';
@@ -270,32 +324,22 @@
 
         function updateCartUI() {
             const container = document.getElementById('cart-items');
-            const footer = document.getElementById('cart-footer');
             const count = document.getElementById('cart-count');
             const totalEl = document.getElementById('cart-total');
+            const footer = document.getElementById('cart-footer');
             count.innerText = cart.length;
-            
-            if (cart.length === 0) {
-                container.innerHTML = '<p class="text-gray-400 text-center">Cart is empty</p>';
-                footer.classList.add('hidden');
-                return;
-            }
-
+            if (cart.length === 0) { container.innerHTML = '<p class="text-gray-400 text-center">Cart is empty</p>'; footer.classList.add('hidden'); return; }
             footer.classList.remove('hidden');
             let total = 0;
-            container.innerHTML = cart.map((item, index) => {
-                total += item.price;
-                return `<div class="flex justify-between items-center border-b pb-2"><div class="text-xs"><b>${item.name}</b><br><span class="text-gray-500">Ksh ${item.price}</span></div><button onclick="removeItem(${index})" class="text-red-700"><i class="fas fa-trash"></i></button></div>`;
-            }).join('');
+            container.innerHTML = cart.map((item, index) => { total += item.price; return `<div class="flex justify-between items-center border-b pb-2"><div class="text-xs"><b>${item.name}</b><br>Ksh ${item.price}</div><button onclick="removeItem(${index})" class="text-red-700"><i class="fas fa-trash"></i></button></div>`; }).join('');
             totalEl.innerText = `Ksh ${total}`;
         }
 
         function removeItem(i) { cart.splice(i, 1); updateCartUI(); }
-
         function checkout() {
-            let message = "Hi Legacy Meats Hub, I would like to order:\n" + cart.map(i => `- ${i.name} (Ksh ${i.price})`).join('\n') + `\n\nTotal: Ksh ${document.getElementById('cart-total').innerText}`;
+            let message = "Hi Legacy Meats Hub, I would like to order:\n" + cart.map(i => `- ${i.name} (Ksh ${i.price})`).join('\n') + `\n\nTotal: ${document.getElementById('cart-total').innerText}`;
             window.open(`https://wa.me/254729466466?text=${encodeURIComponent(message)}`, "_blank");
         }
     </script>
 </body>
-</html>  
+</html>
