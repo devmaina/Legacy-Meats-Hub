@@ -45,14 +45,13 @@
     <style>
         :root { --primary: #7f1d1d; --dark: #0a0a0a; }
         body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        html { overflow-x: hidden; }
         h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
         /* Smooth Reveal Animation */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-            font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000;
-        }
         .cart-badge { position: absolute; top: -2px; right: -2px; background: var(--primary); color: white; border-radius: 50%; padding: 1px 5px; font-size: 10px; }
 
         @media (max-width: 767px) {
@@ -96,8 +95,10 @@
         </div>
         <nav class="flex flex-col space-y-6 text-center oswald text-2xl">
             <a href="#products" onclick="toggleMenu()">Shop Quality Meat</a>
+            <a href="#products" onclick="toggleMenu()">Shop Categories</a>
             <a href="wholesale.html" onclick="toggleMenu()">Wholesale Supply</a>
             <a href="#testimonials" onclick="toggleMenu()">Happy Clients</a>
+            <a href="#" onclick="toggleMenu()">Location</a>
             <a href="tel:+254729466466" class="text-red-500">CONTACT US</a>
         </nav>
     </div>
