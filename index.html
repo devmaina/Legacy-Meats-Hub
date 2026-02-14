@@ -48,15 +48,22 @@
         html { overflow-x: hidden; }
         h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
+        /* Section Spacing */
+        section { margin-top: 2rem; margin-bottom: 2rem; }
+        .section-padding { padding: 3rem 1rem; }
+
         /* Smooth Reveal Animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Show first items immediately without animation */
+        .reveal.initial { opacity: 1; transform: translateY(0); }
 
         .cart-badge { position: absolute; top: -2px; right: -2px; background: var(--primary); color: white; border-radius: 50%; padding: 1px 5px; font-size: 10px; }
 
         @media (max-width: 767px) {
             .product-grid { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
             .product-card { width: 80vw !important; margin: 0 auto; }
+            .section-padding { padding: 2rem 1rem; }
         }
     </style>
 </head>
@@ -65,9 +72,9 @@
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <img src="logo.PNG" alt="Legacy Meats Hub Logo" class="h-10 w-auto" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3014/3014497.png'">
-                <span class="text-2xl font-bold text-red-900 oswald tracking-tighter">Legacy Meats Hub</span>
+            <div class="flex items-center space-x-1 md:space-x-2 max-w-[90vw]">
+                <img src="logo.PNG" alt="Legacy Meats Hub Logo" class="h-8 md:h-10 w-auto" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3014/3014497.png'">
+                <span class="text-lg md:text-2xl font-bold text-red-900 oswald tracking-tighter truncate">Legacy Meats Hub</span>
             </div>
             
             <div class="flex items-center space-x-2">
@@ -88,7 +95,7 @@
     </header>
 
     <!-- Mobile Nav -->
-    <div id="mobile-nav" class="fixed top-0 left-0 w-full bg-black text-white z-[60] p-6 shadow-2xl md:hidden">
+    <div id="mobile-nav" class="fixed top-0 left-0 w-full bg-black text-white z-[60] p-6 shadow-2xl md:hidden" style="display:none;">
         <div class="flex justify-between items-center mb-8">
             <span class="oswald font-bold text-xl">Menu</span>
             <button onclick="toggleMenu()" class="text-3xl">&times;</button>
@@ -121,20 +128,20 @@
     </section>
 
     <!-- Products -->
-    <section id="products" class="section-padding container mx-auto reveal">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-6">
-            <h2 class="text-2xl md:text-4xl font-bold oswald">Top Products</h2>
-            <div class="flex gap-1 mt-2 md:mt-0 overflow-x-auto whitespace-nowrap">
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#BEEF</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#GOAT</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#CHICKEN</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-2 py-1 rounded">#DAIRY</span>
+    <section id="products" class="section-padding container mx-auto reveal initial">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <h2 class="text-2xl md:text-4xl font-bold oswald mb-4 md:mb-0">Top Products</h2>
+            <div class="flex gap-2 mt-2 md:mt-0 overflow-x-auto whitespace-nowrap">
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#BEEF</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#GOAT</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#CHICKEN</span>
+                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#DAIRY</span>
             </div>
         </div>
         
         <div id="product-list" class="product-grid md:grid md:grid-cols-4 gap-3 md:gap-6">
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-32 md:h-48"><img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Beef"></div>
+                <div class="overflow-hidden h-40 md:h-56"><img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Beef"></div>
                 <div class="p-3">
                     <h3 class="font-bold text-sm md:text-lg oswald">Beef</h3>
                     <p class="text-gray-500 text-[10px] md:text-xs mb-2">Fresh, tender cuts for every meal.</p>
@@ -145,7 +152,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-32 md:h-48"><img src="raw-meat-3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Goat"></div>
+                <div class="overflow-hidden h-40 md:h-56"><img src="raw-meat-3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Goat"></div>
                 <div class="p-3">
                     <h3 class="font-bold text-sm md:text-lg oswald">Goat Meat</h3>
                     <p class="text-gray-500 text-[10px] md:text-xs mb-2">Quality farm-fresh cuts.</p>
@@ -156,7 +163,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-32 md:h-48"><img src="kienyeji.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Chicken"></div>
+                <div class="overflow-hidden h-40 md:h-56"><img src="kienyeji.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Chicken"></div>
                 <div class="p-3">
                     <h3 class="font-bold text-sm md:text-lg oswald">Kienyeji Chicken</h3>
                     <p class="text-gray-500 text-[10px] md:text-xs mb-2">Authentic local taste.</p>
@@ -167,7 +174,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-32 md:h-48"><img src="Minced Meat.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Minced"></div>
+                <div class="overflow-hidden h-40 md:h-56"><img src="Minced Meat.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Minced"></div>
                 <div class="p-3">
                     <h3 class="font-bold text-sm md:text-lg oswald">Minced Meat</h3>
                     <p class="text-gray-500 text-[10px] md:text-xs mb-2">Lean and high quality.</p>
@@ -179,19 +186,19 @@
             </div>
         </div>
         
-        <div class="text-center mt-8" id="more-trigger">
-            <button onclick="loadMoreProducts()" class="text-red-800 font-bold oswald flex items-center mx-auto gap-2 group border border-red-800 px-6 py-2 rounded-full hover:bg-red-800 hover:text-white transition">
+        <div class="text-center mt-10" id="more-trigger">
+            <button onclick="loadMoreProducts()" class="text-red-800 font-bold oswald flex items-center mx-auto gap-2 group border border-red-800 px-6 py-3 rounded-full hover:bg-red-800 hover:text-white transition">
                 See More Products <i class="fas fa-arrow-down animate-bounce"></i>
             </button>
         </div>
     </section>
 
     <!-- Wholesale Link -->
-    <section class="bg-black text-white py-8 border-y border-red-900 reveal">
+    <section class="bg-black text-white py-12 border-y border-red-900 reveal my-8">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-xl md:text-2xl font-bold oswald mb-2">Wholesale Supply</h2>
-            <p class="text-xs md:text-sm mb-4 text-gray-400">Consistent quality delivery for hotels, restaurants, and schools across Nairobi.</p>
-            <a href="wholesale.html" class="bg-red-800 text-white px-6 py-2 rounded font-bold text-sm uppercase">Learn More</a>
+            <h2 class="text-xl md:text-2xl font-bold oswald mb-4">Wholesale Supply</h2>
+            <p class="text-xs md:text-sm mb-6 text-gray-400">Consistent quality delivery for hotels, restaurants, and schools across Nairobi.</p>
+            <a href="wholesale.html" class="bg-red-800 text-white px-8 py-3 rounded font-bold text-sm uppercase hover:bg-red-900 transition">Learn More</a>
         </div>
     </section>
 
@@ -281,20 +288,27 @@
     </div>
 
     <script>
-        // Reveal on Scroll Logic
+        // Reveal on Scroll Logic - Optimized
+        let hasRevealed = new Set();
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
+                if (hasRevealed.has(reveals[i])) continue;
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+                var elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
+                    hasRevealed.add(reveals[i]);
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        window.onload = reveal;
+        // Show initial elements immediately without delay
+        window.addEventListener("load", function() {
+            setTimeout(reveal, 50);
+        });
+        reveal();
 
         // Slideshow
         const heroSlides = [
@@ -307,12 +321,16 @@
             const textEl = document.getElementById('hero-text');
             const bgEl = document.getElementById('hero-bg');
             currentSlide = (currentSlide + 1) % heroSlides.length;
+            textEl.style.transition = 'opacity 0.8s ease-in-out';
+            bgEl.style.transition = 'opacity 0.8s ease-in-out';
             textEl.style.opacity = '0';
+            bgEl.style.opacity = '0.5';
             setTimeout(() => {
                 textEl.innerText = heroSlides[currentSlide].text;
                 bgEl.src = heroSlides[currentSlide].bg;
                 textEl.style.opacity = '1';
-            }, 600);
+                bgEl.style.opacity = '0.6';
+            }, 400);
         }, 5000);
 
         // Products
@@ -328,13 +346,41 @@
             extraProducts.forEach(p => {
                 const card = document.createElement('div');
                 card.className = "product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group";
-                card.innerHTML = `<div class="overflow-hidden h-32 md:h-48"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><div class="p-3"><h3 class="font-bold text-sm md:text-lg oswald">${p.name}</h3><div class="flex justify-between items-center mt-2"><span class="text-red-800 font-bold text-xs">Ksh ${p.price} / ${p.unit}</span><button onclick="addToCart('${p.name}', ${p.price})" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button></div></div>`;
+                card.innerHTML = `<div class="overflow-hidden h-40 md:h-56"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><div class="p-3"><h3 class="font-bold text-sm md:text-lg oswald">${p.name}</h3><div class="flex justify-between items-center mt-2"><span class="text-red-800 font-bold text-xs">Ksh ${p.price} / ${p.unit}</span><button onclick="addToCart('${p.name}', ${p.price})" class="bg-red-800 text-white px-3 py-1 rounded text-[10px] uppercase font-bold">Add</button></div></div>`;
                 list.appendChild(card);
             });
             document.getElementById('more-trigger').style.display = 'none';
         }
 
-        function toggleMenu() { document.getElementById('mobile-nav').classList.toggle('open'); }
+        function toggleMenu() {
+            const nav = document.getElementById('mobile-nav');
+            if (nav.style.display === 'block') {
+                nav.style.display = 'none';
+                document.body.style.overflow = '';
+            } else {
+                nav.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close menu when clicking outside or pressing Escape
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mobile-nav');
+            const hamburger = document.querySelector('button[onclick="toggleMenu()"] i.fa-bars');
+            if (nav.style.display === 'block' && !nav.contains(event.target) && !event.target.closest('button[onclick="toggleMenu()"]')) {
+                nav.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const nav = document.getElementById('mobile-nav');
+                if (nav.style.display === 'block') {
+                    nav.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+        });
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('translate-x-full'); }
 
         let cart = [];
