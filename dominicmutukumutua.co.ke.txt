@@ -1,0 +1,10 @@
+dominicmutukumutua.co.ke.	900	IN	A	185.199.108.153
+dominicmutukumutua.co.ke.	900	IN	A	185.199.109.153
+dominicmutukumutua.co.ke.	900	IN	A	185.199.110.153
+dominicmutukumutua.co.ke.	900	IN	A	185.199.111.153
+dominicmutukumutua.co.ke.	3600	IN	NS	ns1.stableserver.net.
+dominicmutukumutua.co.ke.	3600	IN	NS	ns2.stableserver.net.
+dominicmutukumutua.co.ke.	3600	IN	NS	ns3.stableserver.net.
+dominicmutukumutua.co.ke.	3600	IN	NS	ns4.stableserver.net.
+dominicmutukumutua.co.ke.	3600	IN	SOA	dns1.stableserver.net. postmaster.stableserver.net. 2025063001 10800 3600 604800 3600
+www.dominicmutukumutua.co.ke.	900	IN	CNAME	devmaina.github.io.

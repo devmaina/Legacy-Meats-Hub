@@ -58,12 +58,50 @@
         /* Show first items immediately without animation */
         .reveal.initial { opacity: 1; transform: translateY(0); }
 
+        /* Video below hero - 16:9 bouncing red/pink orbs */
+        .video-hero {
+            width: 80vw;
+            max-width: 50vw;
+            margin: 2rem auto;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        @media (max-width: 1023px) { .video-hero { width: 80vw; max-width: none; } }
+        @media (max-width: 767px) { .video-hero { width: 90vw; margin: 1rem auto; } }
+        .video-hero video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            opacity: 0.85;
+        }
+
+        /* Marquee hashtags */
+        .marquee { 
+          --gap: 1rem;
+          width: 100%;
+          overflow: hidden;
+          background: linear-gradient(to right, var(--primary)10 0%, transparent 40%, transparent 60%, var(--primary)10 100%);
+        }
+        .marquee-content {
+          animation: scroll 25s linear infinite;
+          display: flex;
+          gap: var(--gap);
+        }
+        @keyframes scroll {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(calc(-100% - var(--gap))); }
+        }
+        .marquee:hover .marquee-content { animation-play-state: paused; }
+
         .cart-badge { position: absolute; top: -2px; right: -2px; background: var(--primary); color: white; border-radius: 50%; padding: 1px 5px; font-size: 10px; }
 
         @media (max-width: 767px) {
             .product-grid { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
             .product-card { width: 80vw !important; margin: 0 auto; }
             .section-padding { padding: 2rem 1rem; }
+            .video-hero { height: 25vh; }
         }
     </style>
 </head>
@@ -127,20 +165,56 @@
         </div>
     </section>
 
+    <!-- Video Below Hero -->
+    <section class="py-12 relative overflow-hidden" style="background: linear-gradient(45deg, #7f1d1d20, #ec489920, #7f1d1d20);">
+        <div class="container mx-auto flex items-center gap-8 max-w-6xl px-4">
+            <div class="flex-1 text-left max-w-md">
+                <h2 class="text-3xl md:text-5xl oswald font-bold text-white mb-4 drop-shadow-lg tracking-wide">FRESH CUTS</h2>
+                <h3 class="text-xl md:text-2xl font-bold text-red-300 drop-shadow-lg">Daily Supplies</h3>
+                <p class="text-white/90 text-lg mt-2 drop-shadow-md">Premium beef • goat • chicken delivered fresh</p>
+            </div>
+            <div class="flex-shrink-0">
+                <div class="video-hero">
+                    <video autoplay muted loop playsinline preload="metadata" controlslist="nodownload">
+                        <source src="video-below-hero.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 pointer-events-none -z-10">
+            <div class="absolute -top-20 -left-20 w-32 h-32 bg-gradient-to-r from-red-600 to-red-400 rounded-full animate-bounce blur-xl opacity-30" style="animation-delay: 0s;"></div>
+            <div class="absolute bottom-[-100px] right-[-80px] w-24 h-24 bg-gradient-to-r from-pink-500 to-pink-300 rounded-full animate-bounce blur-xl opacity-30" style="animation-delay: 1.5s;"></div>
+            <div class="absolute top-[40%] -right-16 w-20 h-20 bg-gradient-to-r from-red-500 to-orange-400 rounded-full animate-ping opacity-40" style="animation-duration: 3s;"></div>
+        </div>
+    </section>
+
     <!-- Products -->
     <section id="products" class="section-padding container mx-auto reveal initial">
         <div class="flex flex-col md:flex-row justify-between items-center mb-8">
             <h2 class="text-2xl md:text-4xl font-bold oswald mb-4 md:mb-0">Top Products</h2>
-            <div class="flex gap-2 mt-2 md:mt-0 overflow-x-auto whitespace-nowrap">
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#BEEF</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#GOAT</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#CHICKEN</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#DAIRY</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#TBONE</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#SKIRTSTEAK</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#FILLET</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#RIBEYE</span>
-                <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded">#FLANKSTEAK</span>
+            <div class="marquee mt-4 md:mt-0 w-full">
+                <div class="marquee-content">
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#BEEF</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#GOAT</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#CHICKEN</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#DAIRY</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#TBONE</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#SKIRTSTEAK</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#FILLET</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#RIBEYE</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#FLANKSTEAK</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#BEEF</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#GOAT</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#CHICKEN</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#DAIRY</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#TBONE</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#SKIRTSTEAK</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#FILLET</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#RIBEYE</span>
+                    <span class="text-[10px] font-bold text-red-800 bg-red-50 px-3 py-2 rounded whitespace-nowrap">#FLANKSTEAK</span>
+                </div>
             </div>
         </div>
         
