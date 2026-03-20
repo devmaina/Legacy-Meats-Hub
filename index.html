@@ -48,9 +48,11 @@
         html { overflow-x: hidden; }
         h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
-        /* Section Spacing */
-        section { margin-top: 2rem; margin-bottom: 2rem; }
+        /* Section Spacing - no margins between hero/video */
+        section:not(.hero-section, .video-section) { margin-top: 2rem; margin-bottom: 2rem; }
+        .hero-section, .video-section { margin-top: 0 !important; margin-bottom: 0 !important; }
         .section-padding { padding: 3rem 1rem; }
+        header + section { margin-top: 0; }
 
         /* Smooth Reveal Animation */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
@@ -149,7 +151,7 @@
     </div>
 
     <!-- Hero -->
-    <section class="relative h-[35vh] md:h-[65vh] bg-black flex items-center overflow-hidden">
+    <section class="hero-section relative h-[35vh] md:h-[65vh] bg-black flex items-center overflow-hidden">
         <div class="absolute inset-0">
             <img id="hero-bg" src="raw-meat-3.jpg" class="w-full h-full object-cover opacity-60" alt="Quality Meat">
         </div>
@@ -166,7 +168,7 @@
     </section>
 
     <!-- Video Below Hero -->
-    <section class="py-12 relative overflow-hidden" style="background: linear-gradient(45deg, #7f1d1d20, #ec489920, #7f1d1d20);">
+    <section class="video-section py-12 relative overflow-hidden" style="background: linear-gradient(45deg, #7f1d1d20, #ec489920, #7f1d1d20);">
         <div class="container mx-auto flex items-center gap-8 max-w-6xl px-4">
             <div class="flex-1 text-left max-w-md">
                 <h2 class="text-3xl md:text-5xl oswald font-bold text-white mb-4 drop-shadow-lg tracking-wide">FRESH CUTS</h2>
