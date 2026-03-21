@@ -44,7 +44,8 @@
 
     <style>
         :root { --primary: #7f1d1d; --dark: #0a0a0a; }
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+*, *::before, *::after { transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1); }
         html { overflow-x: hidden; }
         h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
@@ -99,11 +100,30 @@
 
         .cart-badge { position: absolute; top: -2px; right: -2px; background: var(--primary); color: white; border-radius: 50%; padding: 1px 5px; font-size: 10px; }
 
+        /* Smoother custom animations for video section circles - fewer, varied sizes */
+        @keyframes float-smooth {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-25px) scale(1.05); }
+        }
+        @keyframes float-reverse-smooth {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(25px) scale(1.1); }
+        }
+        @keyframes bounce-smooth {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-35px) rotate(180deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1) opacity: 0.4; box-shadow: 0 0 20px currentColor; }
+            50% { transform: scale(1.2) opacity: 0.7; box-shadow: 0 0 40px currentColor; }
+        }
+
         @media (max-width: 767px) {
             .product-grid { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
             .product-card { width: 80vw !important; margin: 0 auto; }
             .section-padding { padding: 2rem 1rem; }
-            .video-hero { height: 25vh; }
+            .video-hero { width: 100vw; height: 40vh; margin: 1rem -2rem; border-radius: 0; }
+            .video-section { padding: 2rem 1rem; }
         }
     </style>
 </head>
@@ -169,11 +189,11 @@
 
     <!-- Video Below Hero -->
     <section class="video-section py-12 relative overflow-hidden" style="background: linear-gradient(45deg, #7f1d1d20, #ec489920, #7f1d1d20);">
-        <div class="container mx-auto flex items-center gap-8 max-w-6xl px-4">
+<div class="container mx-auto flex flex-col lg:flex-row items-center gap-8 max-w-6xl px-4">
             <div class="flex-1 text-left max-w-md">
-                <h2 class="text-3xl md:text-5xl oswald font-bold text-white mb-4 drop-shadow-lg tracking-wide">FRESH CUTS</h2>
-                <h3 class="text-xl md:text-2xl font-bold text-red-300 drop-shadow-lg">Daily Supplies</h3>
-                <p class="text-white/90 text-lg mt-2 drop-shadow-md">Premium beef • goat • chicken delivered fresh</p>
+                <h2 class="text-3xl md:text-5xl oswald font-bold text-gray-900 mb-4 drop-shadow-lg tracking-wide">FRESH CUTS</h2>
+                <h3 class="text-xl md:text-2xl font-bold text-red-900 drop-shadow-lg">Daily Supplies</h3>
+                <p class="text-gray-800 text-lg mt-2 drop-shadow-md">Premium beef • goat • chicken delivered fresh</p>
             </div>
             <div class="flex-shrink-0">
                 <div class="video-hero">
@@ -185,9 +205,13 @@
             </div>
         </div>
         <div class="absolute inset-0 pointer-events-none -z-10">
-            <div class="absolute -top-20 -left-20 w-32 h-32 bg-gradient-to-r from-red-600 to-red-400 rounded-full animate-bounce blur-xl opacity-30" style="animation-delay: 0s;"></div>
-            <div class="absolute bottom-[-100px] right-[-80px] w-24 h-24 bg-gradient-to-r from-pink-500 to-pink-300 rounded-full animate-bounce blur-xl opacity-30" style="animation-delay: 1.5s;"></div>
-            <div class="absolute top-[40%] -right-16 w-20 h-20 bg-gradient-to-r from-red-500 to-orange-400 rounded-full animate-ping opacity-40" style="animation-duration: 3s;"></div>
+            <!-- Fewer smoother animated circles, varied sizes -->
+            <div class="absolute top-5 left-5 w-20 h-20 bg-gradient-to-br from-red-500/40 to-pink-400/40 rounded-full animate-float-smooth blur-lg" style="animation-duration: 6s; animation-delay: 0s; animation-timing-function: ease-in-out;"></div>
+            <div class="absolute -top-10 right-10 w-36 h-36 bg-gradient-to-br from-orange-400/30 to-yellow-500/30 rounded-full animate-bounce-smooth blur-xl" style="animation-duration: 8s; animation-delay: 1s; animation-timing-function: ease-in-out;"></div>
+            <div class="absolute bottom-20 left-1/4 w-14 h-14 bg-gradient-to-br from-purple-500/50 to-pink-400/50 rounded-full animate-pulse-glow opacity-70" style="animation-duration: 5s; animation-delay: 2s;"></div>
+            <div class="absolute top-40% right-5 w-28 h-28 bg-gradient-to-br from-red-600/35 to-orange-500/35 rounded-full animate-float-reverse-smooth blur-md" style="animation-duration: 7s; animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-10 left-2/3 w-40 h-40 bg-gradient-to-br from-pink-500/25 to-red-400/25 rounded-full animate-bounce-smooth blur-2xl" style="animation-duration: 9s; animation-delay: 3s;"></div>
+            <div class="absolute top-70% right-20 w-18 h-18 bg-gradient-to-br from-yellow-400/45 to-orange-600/45 rounded-full animate-pulse-glow" style="animation-duration: 4s; animation-delay: 1.5s;"></div>
         </div>
     </section>
 
@@ -432,17 +456,19 @@
             const textEl = document.getElementById('hero-text');
             const bgEl = document.getElementById('hero-bg');
             currentSlide = (currentSlide + 1) % heroSlides.length;
-            textEl.style.transition = 'opacity 0.8s ease-in-out';
-            bgEl.style.transition = 'opacity 0.8s ease-in-out';
+            textEl.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            bgEl.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             textEl.style.opacity = '0';
-            bgEl.style.opacity = '0.5';
+            textEl.style.transform = 'scale(0.95) translateY(10px)';
+            bgEl.style.opacity = '0.3';
             setTimeout(() => {
                 textEl.innerText = heroSlides[currentSlide].text;
                 bgEl.src = heroSlides[currentSlide].bg;
                 textEl.style.opacity = '1';
+                textEl.style.transform = 'scale(1) translateY(0)';
                 bgEl.style.opacity = '0.6';
-            }, 400);
-        }, 5000);
+            }, 600);
+        }, 6000);
 
         // Products
         const extraProducts = [

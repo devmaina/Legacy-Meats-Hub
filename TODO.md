@@ -1,12 +1,12 @@
-# Video Below Hero + Marquee Hashtags TODO
+# Video Section Optimization
 
-**Approved Plan Implementation**
+## Steps
 
-## Steps:
-- [x] Step 1: Add CSS styles for video (16:9) and marquee animation to <style> block in index.html
-- [x] Step 2: Insert video-below-hero.webm section after hero </section> 
-- [x] Step 3: Replace hashtags div with marquee version in #products header
-- [x] Step 4: Test video loops, 16:9 crop, minimal controls; hashtags marquee scrolls
-- [x] Step 5: Mark complete, attempt_completion
-
-**Current Progress:** All steps completed!
+1. Create TODO.md ✅
+2. ✅ Update text colors to dark
+3. ✅ Update layout for mobile (video below text)
+4. ✅ Enhance animations (more circles across section, z-index behind)
+5. ✅ Add keyframes for new animations
+6. ✅ Test & complete
+7. ✅ Feedback: Fewer varied circles (6), smoother global/hero transitions (cubic-bezier, scale effects)
+8. ✅ Final test
