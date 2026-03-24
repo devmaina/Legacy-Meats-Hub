@@ -173,7 +173,7 @@
     <!-- Hero -->
     <section class="hero-section relative h-[35vh] md:h-[65vh] bg-black flex items-center overflow-hidden">
         <div class="absolute inset-0">
-            <img id="hero-bg" src="raw-meat-3.jpg" class="w-full h-full object-cover opacity-60" alt="Quality Meat">
+            <img id="hero-bg" src="raw-meat-3.png" class="w-full h-full object-cover opacity-60" alt="Quality Meat">
         </div>
         <div class="container mx-auto px-4 relative z-10 text-white">
             <p class="text-red-500 font-bold uppercase text-xs md:text-sm tracking-widest mb-1">Nairobi’s Best Wholesale Meat Supplier</p>
@@ -188,13 +188,9 @@
     </section>
 
     <!-- Video Below Hero -->
-    <section class="video-section py-12 relative overflow-hidden" style="background: linear-gradient(45deg, #7f1d1d20, #ec489920, #7f1d1d20);">
+    <section class="video-section py-12">
 <div class="container mx-auto flex flex-col lg:flex-row items-center gap-8 max-w-6xl px-4">
-            <div class="flex-1 text-left max-w-md">
-                <h2 class="text-3xl md:text-5xl oswald font-bold text-gray-900 mb-4 drop-shadow-lg tracking-wide">FRESH CUTS</h2>
-                <h3 class="text-xl md:text-2xl font-bold text-red-900 drop-shadow-lg">Daily Supplies</h3>
-                <p class="text-gray-800 text-lg mt-2 drop-shadow-md">Premium beef • goat • chicken delivered fresh</p>
-            </div>
+<h2 class="text-3xl md:text-5xl oswald font-bold text-red-900 tracking-wide mx-auto text-center">FRESH CUTS</h2>
             <div class="flex-shrink-0">
                 <div class="video-hero">
                     <video autoplay muted loop playsinline preload="metadata" controlslist="nodownload">
@@ -257,7 +253,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-40 md:h-56"><img src="raw-meat-3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Goat"></div>
+            <div class="overflow-hidden h-40 md:h-56"><img src="raw-meat-3.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Goat"></div>
                 <div class="p-3">
                     <h3 class="font-bold text-sm md:text-lg oswald">Goat Meat</h3>
                     <p class="text-gray-500 text-[10px] md:text-xs mb-2">Quality farm-fresh cuts.</p>
@@ -268,7 +264,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-40 md:h-56"><img src="kienyeji.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Chicken"></div>
+                <div class="overflow-hidden h-40 md:h-56"><img src="kienyeji.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Chicken"></div>
                 <div class="p-3">
                     <h3 class="font-bold text-sm md:text-lg oswald">Kienyeji Chicken</h3>
                     <p class="text-gray-500 text-[10px] md:text-xs mb-2">Authentic local taste.</p>
@@ -279,7 +275,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded overflow-hidden border border-gray-100 shadow-sm group">
-                <div class="overflow-hidden h-40 md:h-56"><img src="Minced Meat.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Minced"></div>
+                <div class="overflow-hidden h-40 md:h-56"><img src="Minced Meat.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Minced"></div>
                 <div class="p-3">
                     <h3 class="font-bold text-sm md:text-lg oswald">Minced Meat</h3>
                     <p class="text-gray-500 text-[10px] md:text-xs mb-2">Lean and high quality.</p>
@@ -448,8 +444,8 @@
         // Slideshow
         const heroSlides = [
             { text: "Quality Meat for Your Family", bg: " raw-meat 5.jpeg  " },
-            { text: "Fresh Cuts Delivery at Your Doorstep", bg: "  raw-meat 6.jpg " },
-            { text: "Quality Meat for Hotels & Cafes", bg: " raw-meat-4.jpg " }
+            { text: "Fresh Cuts Delivery at Your Doorstep", bg: "  raw-meat 6.png " },
+            { text: "Quality Meat for Hotels & Cafes", bg: " raw-meat-4.png " }
         ];
         let currentSlide = 0;
         setInterval(() => {
@@ -472,12 +468,12 @@
 
         // Products
         const extraProducts = [
-            { name: "Milk supply", price: 100, unit: "Litre", img: "Milk.jpg" },
-            { name: "Bone supply ", price: 450, unit: "Tray", img: "bone.jpg" },
-            { name: "Eggs supply", price: 750, unit: "Tray", img: " Eggs.jpg " },
-            { name: "Matumbo supply", price: 400, unit: "Kg", img: "Matumbo.jpg" },
-            { name: "Broiler Chicken", price: 600, unit: "Pc", img: "broiler.jpg" },
-            { name: "Liver", price: 900, unit: "Kg", img: "liver.jpg" }
+            { name: "Milk supply", price: 100, unit: "Litre", img: "Milk.png" },
+            { name: "Bone supply ", price: 450, unit: "Tray", img: "bone.png" },
+            { name: "Eggs supply", price: 750, unit: "Tray", img: " Eggs.png " },
+            { name: "Matumbo supply", price: 400, unit: "Kg", img: "Matumbo.png" },
+            { name: "Broiler Chicken", price: 600, unit: "Pc", img: "broiler.png" },
+            { name: "Liver", price: 900, unit: "Kg", img: "liver.png" }
         ];
 
         function loadMoreProducts() {
